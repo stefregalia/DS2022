@@ -13,3 +13,5 @@ num_lines=$(tail -n +2 lab3.csv | wc -l)
 echo "The total number of lines remaining in the data file is $num_lines"
 
 tar -czf converted-archive.tar.gz lab3.csv
+
+git add lab3.csv
