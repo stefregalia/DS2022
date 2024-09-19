@@ -14,4 +14,6 @@ echo "The total number of lines remaining in the data file is $num_lines"
 
 tar -czf converted-archive.tar.gz lab3.csv
 
+chmod 755 convert-bundle.sh
+
 
