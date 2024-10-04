@@ -1,7 +1,8 @@
-python3
+#!usr/bin/env python3
 import boto3
+import requests
 
-s3 = boto3.client('s3', region_name='us-east-1')
+s3 = boto3.client('s3')
 
 bucket = 'ds2022-xtm9px'
 local_file = 'project/uva_grounds'
