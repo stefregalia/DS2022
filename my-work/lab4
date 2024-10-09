@@ -1,0 +1,47 @@
+bash_script.sh
+
+#!/bin/bash
+
+aws s3 cp uva_grounds s3://ds2022-xtm9px/
+
+aws s3 presign --expires-in 604800 s3://ds2022-xtm9px/uva_grounds
+
+https://ds2022-xtm9px.s3.us-east-1.amazonaws.com/uva_grounds?X-Amz-Algorithm=AW$hm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXKPUZL66BFPKFFKV%2F20240929%2Fus-east$-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240929T223456Z&X-Amz-Expires=604800&X$hm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXKPUZL66BFPKFFKV%2F20240929%2Fus-east$-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240929T223456Z&X-Amz-Expires=604800&X$800&X-Amz-SignedHeaders=host&X-Amz-Signature=8394bdeb1c97a55a46b5c8a976e1cc761$cc7614d1b78ac6cb0acbf06f1bbffe4b22d4
+
+python_script.py
+
+#!usr/bin/env python3
+<<<<<<< HEAD
+
+import boto3
+import requests
+
+=======
+import boto3
+import requests
+
+s3 = boto3.client('s3')
+
+bucket = 'ds2022-xtm9px'
+local_file = 'project/uva_grounds'
+
+resp = s3.put_object(
+  Body = local_file,
+  Bucket = bucket,
+  Key = local_file
+)
+
+bucket_name = 'ds2022-xtm9px'
+object_name = 'uva_grounds'
+expires_in = 604800
+
+response = s3.generate_presigned_url(
+    'get_object',   
+    Params={'Bucket': bucket_name, 'Key': object_name},
+    ExpiresIn=expires_in
+)
+
+
+#Could not output presigned URL
+
+
